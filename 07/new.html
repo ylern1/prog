@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Add Infobox-iframe</title>
+<style>html,body{height:100%;}body{padding:0;margin:0;}h1{padding:0;margin:0;font-size:50%;}</style>
+</head>
+<body>
+
+
+<!-- MAP[START] -->
+<h1>Add Infob-iframe</h1>
+<div id="myMap" style='width:60%;height:70%;float:left;'></div>
+<!-- MAP[END] -->
+
+
+<script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=[ *** YOUR MY KEY *** ]' async defer></script>
+<script src="../js/BmapQuery.js"></script>
+<script>
+    //****************************************************************************************
+    // BingMaps&BmapQuery
+    //****************************************************************************************
+    //Init
+    function GetMap(){
+    //------------------------------------------------------------------------
+    //1. Instance
+    //------------------------------------------------------------------------
+    const map = new Bmap("#myMap");
+    
+    //------------------------------------------------------------------------
+    //2. Display Map
+    //------------------------------------------------------------------------
+    map.startMap(34.8660585,138.9581339, "load", 10);
+
+    //----------------------------------------------------
+    //3. Add Infobox
+    // infobox(lat, lon, "title", "description");
+    //----------------------------------------------------
+    map.infobox(34.8019845,138.990511, "Click me!", "You can see the information by clicking the pin.<br><font color=#c71585>⚫︎</font> Tourist spot<br><font color=#191970>⚫︎</font> Restaurant");
+    
+    //----------------------------------------------------
+    //3. Infobox
+    //   options = new Array();
+    //   options[index] = { lat, lon, width, height, title, pinColor, description };
+    //----------------------------------------------------
+    const options = [];
+    options[0]={
+        "lat":35.0980705,
+        "lon":139.0767022,
+        "title":"ATAMI / Atami Sun Beach",
+        "pinColor":"rgba(199,21,133,0.5)",
+        "height":230,
+        "width":300,
+        "description": '<br><img src="../img/atami_hanabi.jpg" width="250",><img src="../img/atami_sunbeach.jpg" width="250",>',
+        "show":false
+    };
+    options[1]={
+        "lat":34.9820892,
+        "lon":138.9004424,
+        "title":"IZUNOKUNI / Ema Strawberry Picking Center",
+        "pinColor":"rgba(199,21,133,0.5)",
+        "height":230,
+        "width":300,
+        "description": '<br><img src="../img/emastrawberrypark.jpg" width="250"><img src="../img/esp1.jpg" width="250"><img src="../img/esp2.jpg" width="250">',
+        "show":false
+    };
+    options[2]={
+        "lat":34.6073307,
+        "lon":138.808275,
+        "title":"MINAMI-IZU / Hirizo Beach",
+        "pinColor":"rgba(199,21,133,0.5)",
+        "height":300,
+        "width":320,
+        "description": '<br><img src="../img/hirizobeach.jpg" width="250"><img src="../img/hb1.jpg" width="250"><img src="../img/hb2.jpg" width="250">',
+        "show":false
+    };
+    options[3]={
+        "lat":34.6671178,
+        "lon":138.9433769,
+        "title":"SHIMODA / Tsuji",
+        "pinColor":"rgba(25,25,112,0.6)",
+        "height":300,
+        "width":320,
+        "description": '<br><img src="../img/shimoda_tsuji.jpg" width="250"><img src="../img/tsuji1.jpg" width="250"><img src="../img/tsuji2.jpg" width="250"><img src="../img/tsuji3.jpg" width="250">',
+        "show":false
+    };
+    options[4]={
+        "lat":34.8019845,
+        "lon":138.990511,
+        "title":"ITOU / Izu Teddy Bear Museum",
+        "pinColor":"rgba(199,21,133,0.5)",
+        "height":300,
+        "width":320,
+        "description": '<br><img src="../img/teddybearmuseum.jpg" width="250"><img src="../img/tbm1.jpg" width="250"><img src="../img/tbm2.jpg" width="250">',
+        "show":false
+    };
+    options[5]={
+        "lat":34.9693839,
+        "lon":138.7720555,
+        "title":"NUMAZU / sakanaya UOSEI",
+        "pinColor":"rgba(25,25,112,0.6)",
+        "height":300,
+        "width":320,
+        "description": '<br><img src="../img/heda_uosei.jpg" width="250"><img src="../img/uosei1.jpeg" width="250"><img src="../img/uosei2.jpg" width="250">',
+        "show":false
+    };
+    options[6]={
+        "lat":34.911944,
+        "lon":139.1172851,
+        "title":"ITOU / Izu Kogen Beer Main Branch",
+        "pinColor":"rgba(25,25,112,0.6)",
+        "height":300,
+        "width":320,
+        "description": '<br><img src="../img/izukougen.jpg" width="250"><img src="../img/izukougen1.jpg" width="250"><img src="../img/izukougen2.jpg" width="250">',
+        "show":false
+    };
+    options[7]={
+        "lat":34.7818086,
+        "lon":138.7585736,
+        "title":"NISHI-IZU / Dogashima Cave Tour",
+        "pinColor":"rgba(199,21,133,0.5)",
+        "height":300,
+        "width":320,
+        "description": '<br><img src="../img/dougashima.jpg" width="250"><img src="../img/dougashima1.jpg" width="250"><img src="../img/dougashima2.jpg" width="250"><img src="../img/dougashima3.jpg" width="250">',
+        "show":false
+    };
+    //----------------------------------------------------
+    //4. Switch infoboxs
+    //   infoboxLayers(options, true); //true=one, false=Multiple
+    //----------------------------------------------------
+    map.infoboxLayers(options,true);
+    
+}
+</script>
+
+</body>
+</html>
